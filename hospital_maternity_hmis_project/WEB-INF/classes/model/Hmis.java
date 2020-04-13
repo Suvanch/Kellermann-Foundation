@@ -45,6 +45,11 @@ public class Hmis implements Serializable{
     private String sexOfBaby;
     private String breathing;
     private Boolean skinToSkin;
+    private char warmthSource;
+    private char riskStatus;
+    private char NVP;
+    private Boolean BCG;
+    private Boolean polio;
     private Boolean breastFed;
     private Boolean teo;
     private Boolean vitK;
@@ -64,6 +69,7 @@ public class Hmis implements Serializable{
     private Date dateOfDischarge;
     private String nameDischarge;
     private Integer userId;
+
 
     public Date getRecordDate() {
         return recordDate;
@@ -366,6 +372,26 @@ public class Hmis implements Serializable{
         this.skinToSkin = skinToSkin;
     }
 
+    public char getWarmthSource(){return warmthSource;}
+
+    public void setWarmthSource(char warmthSource){this.warmthSource = warmthSource;}
+
+    public char getRiskStatus(){return riskStatus;}
+
+    public void setRiskStatus(char riskStatus){this.riskStatus = riskStatus;}
+
+    public char getNVP(){return NVP;}
+
+    public void srtNVP(char NVP){this.NVP = NVP;}
+
+    public Boolean getBCG(){return BCG;}
+
+    public void setBCG(){this.BCG = BCG;}
+
+    public Boolean getpolio(){return polio;}
+
+    public void setpolio(){this.polio = polio;}
+
     public Boolean getBreastFed() {
         return breastFed;
     }
@@ -525,7 +551,8 @@ public class Hmis implements Serializable{
                 Integer age, Integer gravida, Integer parity, Integer gestation, String term, Integer finalDiagnosis, Date hivTestDate, String whoClinicalStage,
                 String cd4Count, Integer viralLoad, Boolean revisit, String deliveryMode, Date deliveryDate, Date deliveryTime, Boolean ergometrine,
                 Boolean pitocin, Boolean misoprostol, String otherMeds, String emtctCode, String arvs, Boolean vitaminA, String muacColor, Integer muacCM,
-                Integer muacINR, String apgarScore, String sexOfBaby, String breathing, Boolean skinToSkin, Boolean breastFed, Boolean teo, Boolean vitK,
+                Integer muacINR, String apgarScore, String sexOfBaby, String breathing, Boolean skinToSkin,char warmthSource,char riskStatus,char NVP,
+                Boolean BCG, Boolean polio, Boolean breastFed, Boolean teo, Boolean vitK,
                 Boolean chlorohexidine, String counseled, Boolean matNutrCouns, Boolean iycf, String iycfFeeding, float weight, String arvsBaby, Boolean immunized,
                 Integer familyPlanning, String motherCondition, String babyCondition, String deliveredBy, Date postNatalCare, Date dateOfDischarge,
                 String nameDischarge, Integer userId) {
@@ -566,6 +593,11 @@ public class Hmis implements Serializable{
         this.sexOfBaby = sexOfBaby;
         this.breathing = breathing;
         this.skinToSkin = skinToSkin;
+        this.warmthSource = warmthSource;
+        this.riskStatus = riskStatus;
+        this.NVP = NVP;
+        this.BCG = BCG;
+        this.polio =polio;
         this.breastFed = breastFed;
         this.teo = teo;
         this.vitK = vitK;
