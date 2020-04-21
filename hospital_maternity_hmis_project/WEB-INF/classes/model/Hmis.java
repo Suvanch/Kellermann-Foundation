@@ -45,9 +45,9 @@ public class Hmis implements Serializable{
     private String sexOfBaby;
     private String breathing;
     private Boolean skinToSkin;
-    private char warmthSource;
-    private char riskStatus;
-    private char NVP;
+    private String warmthSource;
+    private String riskStatus;
+    private String NVP;
     private Boolean BCG;
     private Boolean polio;
     private Boolean breastFed;
@@ -62,13 +62,22 @@ public class Hmis implements Serializable{
     private String arvsBaby;
     private Boolean immunized;
     private Integer familyPlanning;
+    private String treatmentOfferedBaby;
+    private String finalDiagnosisBaby;
     private String motherCondition;
     private String babyCondition;
+    private Integer mothersFinalDiagnosis;
+    private String postNatalCare24H;//PNC24
+    //private String IYCF;
+    private String feedingOption;
     private String deliveredBy;
-    private Date postNatalCare;
+    private String transferredBy;
+    private String postNatalCare6H;//PNC6
+    private String LLINsGivenBaby;
     private Date dateOfDischarge;
     private String nameDischarge;
     private Integer userId;
+    private String counselingAtDischarge;
 
 
     public Date getRecordDate() {
@@ -372,17 +381,17 @@ public class Hmis implements Serializable{
         this.skinToSkin = skinToSkin;
     }
 
-    public char getWarmthSource(){return warmthSource;}
+    public String getWarmthSource(){return warmthSource;}
 
-    public void setWarmthSource(char warmthSource){this.warmthSource = warmthSource;}
+    public void setWarmthSource(String warmthSource){this.warmthSource = warmthSource;}
 
-    public char getRiskStatus(){return riskStatus;}
+    public String getRiskStatus(){return riskStatus;}
 
-    public void setRiskStatus(char riskStatus){this.riskStatus = riskStatus;}
+    public void setRiskStatus(String riskStatus){this.riskStatus = riskStatus;}
 
-    public char getNVP(){return NVP;}
+    public String getNVP(){return NVP;}
 
-    public void srtNVP(char NVP){this.NVP = NVP;}
+    public void srtNVP(String NVP){this.NVP = NVP;}
 
     public Boolean getBCG(){return BCG;}
 
@@ -488,6 +497,14 @@ public class Hmis implements Serializable{
         this.familyPlanning = familyPlanning;
     }
 
+    public String getTreatmentOfferedBaby(){return treatmentOfferedBaby; }
+
+    public void setTreatmentOfferedBaby(String treatmentOfferedBaby){this.treatmentOfferedBaby = treatmentOfferedBaby;}
+
+    public String getFinalDiagnosisBaby(){return finalDiagnosisBaby;}
+
+    public void setFinalDiagnosisBaby(String finalDiagnosisBaby){this.finalDiagnosisBaby = finalDiagnosisBaby;}
+
     public String getMotherCondition() {
         return motherCondition;
     }
@@ -504,6 +521,18 @@ public class Hmis implements Serializable{
         this.babyCondition = babyCondition;
     }
 
+    public Integer getMothersFinalDiagnosis(){return mothersFinalDiagnosis;}
+
+    public void setMothersFinalDiagnosis(Integer mothersFinalDiagnosis){this.mothersFinalDiagnosis=mothersFinalDiagnosis;}
+
+    public String getPostNatalCare24H(){return postNatalCare24H;}
+
+    public void setPostNatalCare24H(String postNatalCare24H){this.postNatalCare24H = postNatalCare24H;}
+
+    //public String getIYCF(){return IYCF;}
+
+    //public void setIYCF(String IYCF){this.IYCF =IYCF;}
+
     public String getDeliveredBy() {
         return deliveredBy;
     }
@@ -512,13 +541,17 @@ public class Hmis implements Serializable{
         this.deliveredBy = deliveredBy;
     }
 
-    public Date getPostNatalCare() {
-        return postNatalCare;
-    }
+    public String getTransferredBy(){return transferredBy;}
 
-    public void setPostNatalCare(Date postNatalCare) {
-        this.postNatalCare = postNatalCare;
-    }
+    public void setTransferredBy(String transferredBy){this.transferredBy  = transferredBy;}
+
+    public String getPostNatalCare6H() { return postNatalCare6H; }
+
+    public void setPostNatalCare6H(String postNatalCare6H) { this.postNatalCare6H = postNatalCare6H; }
+
+    public String getLLINsGivenBaby(){return LLINsGivenBaby;}
+
+    public void setLLINsGivenBaby(String LLINsGivenBaby){this.LLINsGivenBaby = LLINsGivenBaby;}
 
     public Date getDateOfDischarge() {
         return dateOfDischarge;
@@ -544,6 +577,10 @@ public class Hmis implements Serializable{
         this.userId = userId;
     }
 
+    public String getCounselingAtDischarge(){return counselingAtDischarge;}
+
+    public void setCounselingAtDischarge(String counselingAtDischarge){this.counselingAtDischarge = counselingAtDischarge;}
+
     public Hmis(){
     }
 
@@ -551,11 +588,12 @@ public class Hmis implements Serializable{
                 Integer age, Integer gravida, Integer parity, Integer gestation, String term, Integer finalDiagnosis, Date hivTestDate, String whoClinicalStage,
                 String cd4Count, Integer viralLoad, Boolean revisit, String deliveryMode, Date deliveryDate, Date deliveryTime, Boolean ergometrine,
                 Boolean pitocin, Boolean misoprostol, String otherMeds, String emtctCode, String arvs, Boolean vitaminA, String muacColor, Integer muacCM,
-                Integer muacINR, String apgarScore, String sexOfBaby, String breathing, Boolean skinToSkin,char warmthSource,char riskStatus,char NVP,
+                Integer muacINR, String apgarScore, String sexOfBaby, String breathing, Boolean skinToSkin,String warmthSource,String riskStatus,String NVP,
                 Boolean BCG, Boolean polio, Boolean breastFed, Boolean teo, Boolean vitK,
                 Boolean chlorohexidine, String counseled, Boolean matNutrCouns, Boolean iycf, String iycfFeeding, float weight, String arvsBaby, Boolean immunized,
-                Integer familyPlanning, String motherCondition, String babyCondition, String deliveredBy, Date postNatalCare, Date dateOfDischarge,
-                String nameDischarge, Integer userId) {
+                Integer familyPlanning,String treatmentOfferedBaby,String finalDiagnosisBaby, String motherCondition, String babyCondition,Integer mothersFinalDiagnosis,
+                String postNatalCare24H,String deliveredBy,String transferredBy,
+                String postNatalCare6H,String LLINsGivenBaby, Date dateOfDischarge, String nameDischarge, Integer userId,String counselingAtDischarge) {
         this.recordDate = recordDate;
         this.dateOfAdmission = dateOfAdmission;
         this.ipd = ipd;
@@ -610,13 +648,21 @@ public class Hmis implements Serializable{
         this.arvsBaby = arvsBaby;
         this.immunized = immunized;
         this.familyPlanning = familyPlanning;
+        this.treatmentOfferedBaby = treatmentOfferedBaby;
+        this.finalDiagnosisBaby = finalDiagnosisBaby;
         this.motherCondition = motherCondition;
         this.babyCondition = babyCondition;
+        this.mothersFinalDiagnosis = mothersFinalDiagnosis;
+        this.postNatalCare24H = postNatalCare24H;
+        //this.IYCF = IYCF;
         this.deliveredBy = deliveredBy;
-        this.postNatalCare = postNatalCare;
+        this.transferredBy = transferredBy;
+        this.postNatalCare6H = postNatalCare6H;
+        this.LLINsGivenBaby = LLINsGivenBaby;
         this.dateOfDischarge = dateOfDischarge;
         this.nameDischarge = nameDischarge;
         this.userId = userId;
+        this.counselingAtDischarge =counselingAtDischarge;
     }
 
 }

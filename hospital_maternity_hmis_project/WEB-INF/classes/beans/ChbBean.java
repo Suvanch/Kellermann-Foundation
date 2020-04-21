@@ -235,7 +235,7 @@ public class ChbBean
             this.existing_hmis.setFamilyPlanning((Integer)null);
             this.existing_hmis.setMotherCondition((String)null);
             this.existing_hmis.setBabyCondition((String)null);
-            this.existing_hmis.setDeliveredBy(null);this.existing_hmis.setPostNatalCare(null);
+            this.existing_hmis.setDeliveredBy(null);this.existing_hmis.setPostNatalCare6H(null);
         } catch (Exception var2) {
             System.err.println("ChbBean Error: Method: get_village_vht_list" + var2.getMessage());
         }
@@ -384,7 +384,7 @@ public class ChbBean
             this.existing_hmis.setMotherCondition("");
             this.existing_hmis.setBabyCondition("");
             this.existing_hmis.setDeliveredBy("");
-            this.existing_hmis.setPostNatalCare(null);
+            this.existing_hmis.setPostNatalCare6H(null);
             this.existing_hmis.setDateOfDischarge(null);
             this.existing_hmis.setNameDischarge("");
             this.existing_hmis.setUserId(null);

@@ -172,7 +172,7 @@ public class ChbDAO implements Serializable {
                 hmis.setMotherCondition(rs.getString("motherCondition"));
                 hmis.setBabyCondition(rs.getString("babyCondition"));
                 hmis.setDeliveredBy(rs.getString("deliveredBy"));
-                hmis.setPostNatalCare(rs.getDate("postNatalCare"));
+                hmis.setPostNatalCare6H(rs.getString("postNatalCare"));
                 hmis.setDateOfDischarge(rs.getDate("dateOfDischarge"));
                 hmis.setNameDischarge(rs.getString("nameDischarge"));
                 hmis.setUserId(rs.getInt("userID"));
@@ -296,7 +296,7 @@ public class ChbDAO implements Serializable {
                 hmis.setMotherCondition(rs.getString("motherCondition"));
                 hmis.setBabyCondition(rs.getString("babyCondition"));
                 hmis.setDeliveredBy(rs.getString("deliveredBy"));
-                hmis.setPostNatalCare(rs.getDate("postNatalCare"));
+                hmis.setPostNatalCare6H(rs.getString("postNatalCare"));
                 hmis.setDateOfDischarge(rs.getDate("dateOfDischarge"));
                 hmis.setNameDischarge(rs.getString("nameDischarge"));
                 hmis.setUserId(rs.getInt("userId"));
@@ -422,12 +422,12 @@ public class ChbDAO implements Serializable {
             stmt.setString(48, new_hmis.getBabyCondition());
             stmt.setString(49, new_hmis.getDeliveredBy());
 
-            if(new_hmis.getPostNatalCare()==null)
+            if(new_hmis.getPostNatalCare6H()==null)
             {
                 stmt.setNull(50, java.sql.Types.DATE);
             }
             else {
-                stmt.setString(50, dateFormat.format(new_hmis.getPostNatalCare()));
+                stmt.setString(50, dateFormat.format(new_hmis.getPostNatalCare6H()));
             }
             if(new_hmis.getDateOfDischarge()==null)
             {
@@ -575,7 +575,7 @@ public class ChbDAO implements Serializable {
                 hmis.setMotherCondition(rs.getString("motherCondition"));
                 hmis.setBabyCondition(rs.getString("babyCondition"));
                 hmis.setDeliveredBy(rs.getString("deliveredBy"));
-                hmis.setPostNatalCare(rs.getDate("postNatalCare"));
+                hmis.setPostNatalCare6H(rs.getString("postNatalCare"));
                 hmis.setDateOfDischarge(rs.getDate("dateOfDischarge"));
                 hmis.setNameDischarge(rs.getString("nameDischarge"));
                 hmis.setUserId(rs.getInt("userId"));
@@ -708,12 +708,12 @@ public class ChbDAO implements Serializable {
             stmt.setString(47, existing_hmis.getMotherCondition());
             stmt.setString(48, existing_hmis.getBabyCondition());
             stmt.setString(49, existing_hmis.getDeliveredBy());
-            if(existing_hmis.getPostNatalCare()==null)
+            if(existing_hmis.getPostNatalCare6H()==null)
             {
                 stmt.setNull(50, java.sql.Types.DATE);
             }
             else {
-                stmt.setString(50, dateFormat.format(existing_hmis.getPostNatalCare()));
+                stmt.setString(50, dateFormat.format(existing_hmis.getPostNatalCare6H()));
             }
             if(existing_hmis.getDateOfDischarge()==null)
             {

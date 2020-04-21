@@ -421,7 +421,12 @@
                                 <br/>
                                 <h:outputLabel value="Feeding Option"/>
                                 <br/>
-                                <p:inputText value="#{chbBean.new_hmis.iycfFeeding}" />
+                                <p:selectOneMenu value="#{chbBean.new_hmis.iycfFeeding}">
+                                    <f:selectItem itemLabel="Select" itemValue="" />
+                                    <f:selectItem itemLabel="EBF: For Exclusive breast feeding" itemValue="EBF" />
+                                    <f:selectItem itemLabel="RF: Replacement Feeding" itemValue="RF" />
+                                    <f:selectItem itemLabel="MF: Mixed Feeding" itemValue="MF" />
+                                </p:selectOneMenu>
                             </h:form>
                                     </p:column>
                                 </p:row>
@@ -462,9 +467,29 @@
                                 <p:column>
                             <h:outputLabel value=" FAMILY PLANNING METHOD GIVEN: " />
                                     <br/>
-                            <p:inputText value="#{chbBean.new_hmis.familyPlanning}"/>
+                                    <p:selectOneMenu value="#{chbBean.new_hmis.familyPlanning}">
+                                        <f:selectItem itemLabel="Select" itemValue="0" />
+                                        <f:selectItem itemLabel="1: Post Partum Female Sterilization (PP-BTL) " itemValue="1" />
+                                        <f:selectItem itemLabel="2: Post-Partum IUD (PP - IUD)" itemValue="2" />
+                                        <f:selectItem itemLabel="3: IUD as part of Post-Abortion Care (PAC - IUD)" itemValue="3" />
+                                        <f:selectItem itemLabel="4: Implant as part of Post-Abortion Care" itemValue="4" />
+                                        <f:selectItem itemLabel="5: Oral pills as part of Post-Abortion Care" itemValue="5" />
+                                        <f:selectItem itemLabel="6: Depo as part of Post-Abortion Care" itemValue="6" />
+                                        <f:selectItem itemLabel="7: Other Family Planning Methods specify" itemValue="7" />
+                                        <f:selectItem itemLabel="8: No Family Planning Method Given" itemValue="8" />
+                                    </p:selectOneMenu>
                                 </p:column>
-                                    <p:column>
+                                <p:column>
+                                        <h:outputLabel value="TREATMENT OFFERED TO THE BABY: " />
+                                        <br/>
+                                        <p:inputText value="#{chbBean.new_hmis.treatmentOfferedBaby}"/>
+                                </p:column>
+                                <p:column>
+                                        <h:outputLabel value=" FINAL DIAGNOSIS FOR THE BABY: " />
+                                        <br/>
+                                        <p:inputText value="#{chbBean.new_hmis.finalDiagnosisBaby}"/>
+                                </p:column>
+                                 <p:column>
                             <h:outputLabel value=" CONDITION OF MOTHER ON DISCHARGE: " />
                                         <br/>
                             <p:selectOneMenu value="#{chbBean.new_hmis.motherCondition}">
@@ -479,30 +504,86 @@
                                 <f:selectItem itemLabel="TF" itemValue="TF" />
                             </p:selectOneMenu>
                                     </p:column>
-                                    <p:column>
-                            <h:outputLabel value=" CONDITION OF BABY ON DISCHARGE: " />
-                                        <br/>
-                            <p:selectOneMenu value="#{chbBean.new_hmis.babyCondition}">
-                                <f:selectItem itemLabel="Select" itemValue="" />
-                                <f:selectItem itemLabel="MSB" itemValue="MSB" />
-                                <f:selectItem itemLabel="FSB" itemValue="FSB" />
-                                <f:selectItem itemLabel="NND" itemValue="NND" />
-                                <f:selectItem itemLabel="AL" itemValue="AL" />
-                                <f:selectItem itemLabel="BDF" itemValue="BDF" />
-                            </p:selectOneMenu>
-                                    </p:column>
-                                    <p:column>
 
-                            <h:outputLabel value=" DELIVERED BY: " />
-                                        <br/>
-                            <p:inputText value="#{chbBean.new_hmis.deliveredBy}"/>
-                                    </p:column>
+
                                 </p:row>
                                 <p:row>
                                     <p:column>
+                                        <h:outputLabel value=" CONDITION OF BABY ON DISCHARGE: " />
+                                        <br/>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.babyCondition}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="MSB" itemValue="MSB" />
+                                            <f:selectItem itemLabel="FSB" itemValue="FSB" />
+                                            <f:selectItem itemLabel="NND" itemValue="NND" />
+                                            <f:selectItem itemLabel="AL" itemValue="AL" />
+                                            <f:selectItem itemLabel="BDF" itemValue="BDF" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputLabel value=" MOTHER’S FINAL DIAGNOSIS: " />
+                                        <br/>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.mothersFinalDiagnosis}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="1. Abortions" itemValue="1" />
+                                            <f:selectItem itemLabel="2. APH" itemValue="2" />
+                                            <f:selectItem itemLabel="3. PPH" itemValue="3" />
+                                            <f:selectItem itemLabel="4. Malaria in pregnancy" itemValue="4" />
+                                            <f:selectItem itemLabel="5. High blood pressure in pregnancy" itemValue="5" />
+                                            <f:selectItem itemLabel="6. Obstructed labour" itemValue="6" />
+                                            <f:selectItem itemLabel="7. Puerperal sepsis" itemValue="7" />
+                                            <f:selectItem itemLabel="8. Sepsis related to pregnancy" itemValue="8" />
+                                            <f:selectItem itemLabel="9. Anaemia in pregnancy" itemValue="9" />
+                                            <f:selectItem itemLabel="10. Ruptured uterus" itemValue="10" />
+                                            <f:selectItem itemLabel="11. Ectopic pregnancy" itemValue="11" />
+                                            <f:selectItem itemLabel="12. Other Complications of pregnancy" itemValue="12" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputLabel value=" PNC AT 24H:  " />
+                                        <br/>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.postNatalCare24H}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="Yes" itemValue="Y" />
+                                            <f:selectItem itemLabel="No" itemValue="N" />
+                                            <f:selectItem itemLabel="NA" itemValue="NA" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+
+
+
+                                    <p:column>
+                                        <h:outputLabel value=" DELIVERED BY: " />
+                                        <br/>
+                                        <p:inputText value="#{chbBean.new_hmis.deliveredBy}"/>
+                                    </p:column>
+
+                                </p:row>
+                                <p:row>
+                                    <p:column>
+                                        <h:outputLabel value=" TRANSFERRED BY: " />
+                                        <br/>
+                                        <p:inputText value="#{chbBean.new_hmis.transferredBy}"/>
+                                    </p:column>
+                                    <p:column>
                                         <h:outputLabel value=" PNC AT 6H:  " />
                                         <br/>
-                                        <p:calendar value="#{chbBean.new_hmis.postNatalCare}"></p:calendar>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.postNatalCare6H}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="Yes" itemValue="Y" />
+                                            <f:selectItem itemLabel="No" itemValue="N" />
+                                            <f:selectItem itemLabel="NA" itemValue="NA" />
+                                        </p:selectOneMenu>
+
+                                    </p:column>
+                                    <p:column>
+                                        <h:outputLabel value=" LLINs GIVEN TO BABY:  " />
+                                        <br/>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.LLINsGivenBaby}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="Yes" itemValue="Y" />
+                                            <f:selectItem itemLabel="No" itemValue="N" />
+                                        </p:selectOneMenu>
 
                                     </p:column>
                                 <p:column>
@@ -510,11 +591,26 @@
                                     <br/>
                                     <p:calendar value="#{chbBean.new_hmis.dateOfDischarge}"></p:calendar>
                                 </p:column>
+
+
+                                </p:row>
+                                <p:row>
                                     <p:column>
-                            <h:outputLabel value=" NAME OF THE PERSON WHO DISCHARGED THE MOTHER:  " />
+                                        <h:outputLabel value=" NAME OF THE PERSON WHO DISCHARGED THE MOTHER:  " />
                                         <br/>
-                            <p:inputText value="#{chbBean.new_hmis.nameDischarge}"/>
+                                        <p:inputText value="#{chbBean.new_hmis.nameDischarge}"/>
                                     </p:column>
+                                    <p:column>
+                                        <h:outputLabel value=" COUNSELING AT DISCHARGE Mater.Nutr. Couns" />
+                                        <br/>
+                                        <p:selectOneMenu value="#{chbBean.new_hmis.counselingAtDischarge}">
+                                            <f:selectItem itemLabel="Select" itemValue="" />
+                                            <f:selectItem itemLabel="Yes" itemValue="Y" />
+                                            <f:selectItem itemLabel="No" itemValue="N" />
+                                        </p:selectOneMenu>
+                                    </p:column>
+
+
                                 </p:row>
                             </p:panelGrid>
 
